@@ -1,0 +1,23 @@
+name: deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: environment
+      imageName:
+        required: true
+        type: string
+      digest:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: "ubuntu-latest"
+    environment: ${{ inputs.environment }}
+    steps:
+      - run: |
+          echo "Deploying docker image ${{ inputs.imageName }}@${{ inputs.digest }}"
+          echo "Special variable: ${{ vars.WORKSHOP_ENV_VARIABLE }}"
