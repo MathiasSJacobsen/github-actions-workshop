@@ -3,7 +3,7 @@ name: Reusable Build
 on:
   workflow_call:
     inputs:
-      config-value:
+      push:
         required: true
         type: boolean
 
