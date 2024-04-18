@@ -1,8 +1,12 @@
 # The "display name", shown in the GitHub UI
 name: Build and test
 
-# Trigger, run on push on any branch
-on: workflow_dispatch
+on:
+  workflow_call:
+    inputs:
+      config-value:
+        required: true
+        type: boolean
 
 jobs:
   test: # The 'build' job
