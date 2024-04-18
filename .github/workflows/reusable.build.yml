@@ -11,6 +11,9 @@ jobs:
   build:
     permissions:
       packages: write
+    outputs:
+      imageName: ${{ fromJson(steps.build-push.outputs.metadata)['image.name'] }}
+      digest: ${{ steps.build-push.outputs.digest }}
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +29,7 @@ jobs:
           password: ${{ github.token }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
+        id: build-push
         with:
           push: ${{ inputs.push }}
           tags: ghcr.io/mathiassjacobsen/github-actions-workshop:latest
