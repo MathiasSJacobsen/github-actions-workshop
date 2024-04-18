@@ -6,6 +6,11 @@ on:
       push:
         required: true
         type: boolean
+    outputs:
+      imageName:
+        value: ${{ jobs.build.outputs.imageName }}
+      digest:
+        value: ${{ jobs.build.outputs.digest }}
 
 jobs:
   build:

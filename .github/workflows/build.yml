@@ -13,7 +13,7 @@ jobs:
       push: true
 
   deploy-test:
-    needs: [build]
+    needs: build
     uses: ./.github/workflows/deploy.yml
     with:
       environment: test
