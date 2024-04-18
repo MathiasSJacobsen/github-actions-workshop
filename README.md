@@ -1,4 +1,4 @@
-# GitHub Actions workshop
+# GitHub Actions workshop1
 
 ## Requirements
 
